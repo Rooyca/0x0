@@ -93,10 +93,10 @@ request() {
 	# NB: The command is repeated two places.
 	# This is bad, but I couldn't get it to print and run correctly at the same time when putting it in a variable.
 	if "$verbose"; then
-		echo curl -Ss -w status_code=%{http_code} \"$(instance)\" \"$form_string\"
+		echo curl -Ss -w status_code=%\{http_code\} \""$(instance)"\" \""$form_string"\"
 	fi
 	if "$execute"; then
-		output="$(curl -Ss -w status_code=%{http_code} "$(instance)" "$form_string")" || exit 1
+		output="$(curl -Ss -w status_code=%\{http_code\} "$(instance)" "$form_string")" || exit 1
 		code="$(echo "$output" | tail -n 1 |  sed s/status_code=//g)"
 		response="$(echo "$output" | grep -vE 'status_code=.*')" # Remove status_code line
 
@@ -122,7 +122,7 @@ dispatch_file() {
 		# NB: The command is repeated two places.
 		# This is bad, but I couldn't get it to print and run correctly at the same time when putting it in a variable.
 		if "$verbose"; then
-			echo tar cf - \"$file\"
+			echo tar cf - \""$file"\"
 		fi
 		if "$execute"; then
 			# stderr is redirected to /dev/null to prevent the following from being displayed

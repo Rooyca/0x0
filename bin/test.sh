@@ -391,7 +391,7 @@ expected_output_pattern='https://0x0.st/*.txt'
 expected_exit_code=0
 
 echo 'testy test' > /tmp/-a
-cd /tmp
+cd /tmp || exit
 
 test_pattern "$assertion" "$command" "$expected_output_pattern" "$expected_exit_code"
 
