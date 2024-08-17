@@ -1,0 +1,215 @@
+#!/bin/sh
+#
+# Copyright (c) 2020 Olav Fosse
+#
+# Permission to use, copy, modify, and distribute this software for any purpose
+# with or without fee is hereby granted, provided that the above copyright
+# notice and this permission notice appear in all copies.
+#
+# THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+# REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+# AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+# INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+# LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+# OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+# PERFORMANCE OF THIS SOFTWARE.
+#
+
+# Additional modifications made in 2024 by Ronald Cantillo
+# Copyright (c) 2024 Ronald Cantillo
+#
+# Permission to use, copy, modify, and distribute these modifications for any purpose
+# with or without fee is hereby granted, provided that the above copyright
+# notice, this permission notice, and the following disclaimer appear in all copies.
+#
+# THESE MODIFICATIONS ARE PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+# REGARD TO THESE MODIFICATIONS INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+# AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+# INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+# LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+# OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+# PERFORMANCE OF THESE MODIFICATIONS.
+#
+
+# ---Constants---
+USAGE="$(cat << EOF
+usage:
+	0x0 file [-nve] filename
+	0x0 url [-nve] URL
+EOF
+)"
+
+# ---Helpers---
+instance() {
+	if [ -n "$NULLPOINTERINSTANCE" ]; then
+		echo "$NULLPOINTERINSTANCE"
+	else
+		echo "https://0x0.st"
+	fi
+}
+
+is_valid_url() {
+	url="$1"
+
+	case "$url" in
+		http://*.* | https://*.* )
+			;;
+		* )
+			return 1
+	esac
+}
+
+exit_with_error() {
+	message="$1"
+
+	printf '%s\n' "$message" 1>&2
+	exit 1
+}
+
+get_full_status_code() {
+	numeral_status_code="$1"
+
+	case "$numeral_status_code" in
+		400)
+			printf '400 Bad Request'
+			;;
+		403)
+			printf '403 Forbidden'
+			;;
+		500)
+			printf '500 Internal Server Error'
+			;;
+		*)
+			# Fallback to numeral status code
+			printf '%s' "$1"
+	esac
+}
+
+form_string() {
+	# Returns properly escaped form string. See curl(1)
+	type="$1" # file/url
+	file_or_url="$2"
+
+	# shellcheck disable=SC2039
+	if [ "$type" = file ]; then
+		printf -- '-Ffile=@"%s"' "$file_or_url"
+	else
+		printf -- '-F%s="%s"' "$type" "$file_or_url"
+	fi
+}
+
+request() {
+	type="$1"
+	file_or_url="$2"
+	execute="$3"
+	verbose="$4"
+	expiration="$5"
+
+
+	form_string="$(form_string "$type" "$file_or_url")"
+
+	# NB: The command is repeated two places.
+	# This is bad, but I couldn't get it to print and run correctly at the same time when putting it in a variable.
+	if "$verbose"; then
+		echo curl -Ss -w status_code=%\{http_code\} \""$(instance)"\" \""$form_string"\" -Fexpires="$expiration"
+	fi
+	if "$execute"; then
+		output="$(curl -Ss -w status_code=%\{http_code\} "$(instance)" "$form_string" -Fexpires="$expiration")" || exit 1
+		code="$(echo "$output" | tail -n 1 |  sed s/status_code=//g)"
+		response="$(echo "$output" | grep -vE 'status_code=.*')" # Remove status_code line
+
+		case "$code" in
+			4** | 5**)
+				exit_with_error "error: $(get_full_status_code "$code")"
+				;;
+			*)
+				echo -n "$response" | xclip -selection clipboard # copy to clipboard
+				echo "[+] Copied to clipboard!"
+				echo ">>> $response"
+		esac
+	fi
+}
+
+# ---Dispatch handlers---
+dispatch_file() {
+	file="$1"
+	execute="$2"
+	verbose="$3"
+	expiration="$4"
+
+	if [ "$file" = - ]; then
+		request file - "$execute" "$verbose" "$expiration"
+	elif [ -d "$file" ]; then
+		# NB: The command is repeated two places.
+		# This is bad, but I couldn't get it to print and run correctly at the same time when putting it in a variable.
+		if "$verbose"; then
+			echo tar cf - \""$file"\"
+		fi
+		if "$execute"; then
+			# stderr is redirected to /dev/null to prevent the following from being displayed
+			# tar: Removing leading / from absolute path names in the archive
+			tar cf - "$file" 2> /dev/null | request file - "$execute" "$verbose" "$expiration" || exit_with_error 'error: tar archival failed'
+		else
+			# NB: This branch is not redundant.
+			# it is required because although we will not execute the command, we may still print it in case $verbose is true
+			request file - "$execute" "$verbose" "$expiration"
+		fi
+	elif [ -e "$file" ]; then
+		request file "$file" "$execute" "$verbose" "$expiration"
+	else
+		exit_with_error "error: $file does not exist"
+	fi
+}
+
+dispatch_url() {
+	url="$1"
+	execute="$2"
+	verbose="$3"
+	expiration="$5"
+
+	is_valid_url "$url" || exit_with_error 'error: invalid url'
+
+	request url "$url" "$execute" "$verbose" "$expiration"
+}
+
+# ---Dispatcher---
+dispatch() {
+    command_modifier="$1"
+
+    # shift fails if there are no arguments to shift.
+    [ "$#" = 0 ] && exit_with_error "$USAGE"
+    shift
+
+    execute=true
+    verbose=false
+    expiration=24  # Default expiration time
+    while getopts ":nve:" flag; do
+        case "$flag" in
+            n) execute=false;;
+            v) verbose=true;;
+            e) expiration="$OPTARG";;  # Set expiration time
+            ?) exit_with_error "$USAGE"
+        esac
+    done
+
+    # Shift away the processed options
+    shift $((OPTIND-1))
+
+    # Only continue if exactly one file or url is passed
+    [ "$#" -eq 1 ] || exit_with_error "$USAGE"
+    file_or_url="$1"
+
+    case "$command_modifier" in
+        file)
+            dispatch_file "$file_or_url" "$execute" "$verbose" "$expiration"
+            ;;
+        url)
+            dispatch_url "$file_or_url" "$execute" "$verbose" "$expiration"
+            ;;
+        *)
+            exit_with_error "$USAGE"
+    esac
+}
+
+# ---Entry point---
+dispatch "$@"

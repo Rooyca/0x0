@@ -1,0 +1,142 @@
+.\"
+.\" Copyright (c) 2020 Olav Fosse <mail@olavfosse.no>
+.\"
+.\" Permission to use, copy, modify, and distribute this software for any
+.\" purpose with or without fee is hereby granted, provided that the above
+.\" copyright notice and this permission notice appear in all copies.
+.\"
+.\" THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+.\" WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+.\" MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+.\" ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+.\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+.\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+.\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+.\"
+.\"
+.\" Copyright (c) 2024 Ronald Cantillo <blog.png8n@slmail.me>
+.\"
+.\" Permission to use, copy, modify, and distribute this software for any
+.\" purpose with or without fee is hereby granted, provided that the above
+.\" copyright notice and this permission notice appear in all copies.
+.\"
+.\" THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+.\" WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+.\" MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+.\" ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+.\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+.\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+.\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+.\"
+.Dd August 16, 2024
+.Dt 0X0 1
+.Os
+.Sh NAME
+.Nm 0x0
+.Nd interface with
+.Lk https://0x0.st
+.Sh SYNOPSIS
+.Nm 0x0 Cm file Oo Fl nve Oc Ar filename
+.Nm 0x0 Cm url Oo Fl nve Oc Ar URL
+.Sh DESCRIPTION
+The
+.Nm
+utility is an interface to the
+.Lk https://0x0.st
+file hosting.
+.Pp
+The command modifiers are as follows.
+.Bl -tag -width Ds
+.It Cm file Ar filename
+Upload the local file
+.Ar filename Ns \&.
+If
+.Ar filename
+is a directory, a tarball of the directory is uploaded.
+If
+.Ar filename
+is -, stdin is uploaded.
+.It Cm url Ar URL
+Upload the remote file at
+.Ar URL .
+Supported protocols are http and https.
+.El
+.Pp
+The options are as follows:
+.Bl -tag -width Ds
+.It Fl n
+Do not execute the
+.Xr curl 1
+or
+.Xr tar 1
+commands.
+.It Fl v
+Output the
+.Xr curl 1
+and
+.Xr tar 1
+commands that are executed, or would be if
+.Fl n
+was not passed.
+.It Fl e
+Set the expiration time.
+Default value is 24 hours.
+Accepts either a duration in hours or an epoch time.
+.El
+.Sh ENVIRONMENT
+.\" The reason we do not call the variable 0X0INSTANCE is that it is illegal to use 0 in a variable
+.Bl -tag -width NULLPOINTERINSTANCE
+.It Ev NULLPOINTERINSTANCE
+Any non-empty value of the environment variable
+.Ev NULLPOINTERINSTANCE
+is used instead of the standard 0x0 instance
+.Lk https://0x0.st .
+See the
+.Sx INSTANCES
+section for a list of known working instances.
+.El
+.Sh INSTANCES
+.Lk https://0x0.st ,
+.Lk https://ttm.sh ,
+.Lk https://envs.sh
+.Sh EXIT STATUS
+.Ex -std 0x0
+.Sh EXAMPLES
+Upload the source code of
+.Bd -literal -offset indent
+$ 0x0 file "$(which 0x0)"
+.Lk https://0x0.st/iU8B.bin
+.Ed
+.Pp
+Output the
+.Xr curl 1
+command
+.Nm
+uses in the previous example without executing it:
+.Bd -literal -offset indent
+$ 0x0 file -nv "$(which 0x0)"
+curl -Ss -w status_code=%{http_code} https://0x0.st "-Ffile=@"/usr/local/bin/0x0" -Fexpires="24""
+.Ed
+.Pp
+Upload a diff:
+.Bd -literal -offset indent
+$ diff old new | 0x0 file -
+.Lk https://0x0.st/iU8L.txt
+.Ed
+.Pp
+Upload a remote file:
+.Bd -literal -offset indent
+$ 0x0 url http://www.openbsd.org/art/puffy/ppuf800X725.gif
+.Lk https://0x0.st/iU8n.gif
+.Ed
+.Sh SEE ALSO
+.Xr curl 1 ,
+.Xr tar 1
+.Pp
+.Lk https://0x0.st ,
+.Lk https://ttm.sh ,
+.Lk https://envs.sh ,
+.Lk https://github.com/rooyca/0x0
+.Sh AUTHORS
+.An Olav Fosse Aq Mt post@olavfosse.no
+.An Ronald Cantillo Aq Mt blog.png8n@slmail.me
