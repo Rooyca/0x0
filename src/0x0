@@ -17,8 +17,8 @@
 
 # ---Constants---
 USAGE="$(cat << EOF
-usage:	0x0 file [-nv] filename
-	0x0 shorten [-nv] URL
+usage:
+	0x0 file [-nv] filename
 	0x0 url [-nv] URL
 EOF
 )"
@@ -150,16 +150,6 @@ dispatch_url() {
 	request url "$url" "$execute" "$verbose"
 }
 
-dispatch_shorten() {
-	url="$1"
-	execute="$2"
-	verbose="$3"
-
-	is_valid_url "$url" || exit_with_error 'error: invalid url'
-
-	request shorten "$url" "$execute" "$verbose"
-}
-
 # ---Dispatcher---
 dispatch() {
 	command_modifier="$1"
@@ -191,9 +181,6 @@ dispatch() {
 			;;
 		url)
 			dispatch_url "$file_or_url" "$execute" "$verbose"
-			;;
-		shorten)
-			dispatch_shorten "$file_or_url" "$execute" "$verbose"
 			;;
 		*)
 			exit_with_error "$USAGE"

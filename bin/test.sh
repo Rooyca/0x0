@@ -17,8 +17,8 @@
 
 # ---Constants---
 USAGE="$(cat << EOF
-usage:	0x0 file [-nv] filename
-	0x0 shorten [-nv] URL
+usage:
+	0x0 file [-nv] filename
 	0x0 url [-nv] URL
 EOF
 )"
@@ -182,8 +182,8 @@ unset expected_exit_code
 
 # Test 5
 assertion='File is uploaded from URL'
-command="$PATH0X0 url https://fossegr.im"
-expected_output_pattern='https://0x0.st/*.html'
+command="$PATH0X0 url https://raw.githubusercontent.com/Rooyca/Rooyca/main/README.md"
+expected_output_pattern='https://0x0.st/*.md'
 expected_exit_code=0
 
 test_pattern "$assertion" "$command" "$expected_output_pattern" "$expected_exit_code"
@@ -194,19 +194,6 @@ unset expected_output_pattern
 unset expected_exit_code
 
 # Test 6
-assertion='URL is shortened'
-command="$PATH0X0 shorten https://fossegr.im/"
-expected_output_pattern='https://0x0.st/*'
-expected_exit_code=0
-
-test_pattern "$assertion" "$command" "$expected_output_pattern" "$expected_exit_code"
-
-unset assertion
-unset command
-unset expected_output_pattern
-unset expected_exit_code
-
-# Test 7
 assertion='Error when attempt to upload non-existant file'
 file="/tmp/non-existant-file"
 command="$PATH0X0 file $file"
@@ -221,7 +208,7 @@ unset command
 unset expected_output
 unset expected_exit_code
 
-# Test 8
+# Test 7
 assertion='Directory is uploaded as a tarball'
 directory='/tmp/directory-to-tarball.temp'
 command="$PATH0X0 file $directory"
@@ -242,7 +229,7 @@ unset command
 unset expected_output_pattern
 unset expected_exit_code
 
-# Test 9
+# Test 8
 assertion='Error when attempt to upload url with no protocol'
 command="$PATH0X0 url fossegr.im"
 expected_output="error: invalid url"
@@ -255,7 +242,7 @@ unset command
 unset expected_output
 unset expected_exit_code
 
-# Test 10
+# Test 9
 assertion='Error when attempt to upload url without domain extension'
 command="$PATH0X0 url https://fossegr"
 expected_output="error: invalid url"
@@ -268,7 +255,7 @@ unset command
 unset expected_output
 unset expected_exit_code
 
-# Test 11
+# Test 10
 assertion='500 Internal Server Error when non existant, but valid url is uploaded'
 command="$PATH0X0 url https://non.existant.website"
 expected_output='error: 500 Internal Server Error'
@@ -281,7 +268,7 @@ unset command
 unset expected_output
 unset expected_exit_code
 
-# Test 12
+# Test 11
 # curl -F treats commas and semicolons differently
 # this makes sure it is escaped properly
 assertion='Uploads file with semicolon and comma in filename'
@@ -302,7 +289,7 @@ unset command
 unset expected_output_pattern
 unset expected_exit_code
 
-# Test 13
+# Test 12
 assertion='Usage is printed when invoked with no arguments'
 command="$PATH0X0"
 expected_output="$USAGE"
@@ -315,7 +302,7 @@ unset command
 unset expected_output
 unset expected_exit_code
 
-# Test 14
+# Test 13
 assertion='Print curl commands when -v option is passed'
 filename='/tmp/0x0.temp'
 command="$PATH0X0 file -v $filename"
@@ -335,7 +322,7 @@ unset command
 unset expected_output_pattern
 unset expected_exit_code
 
-# Test 15
+# Test 14
 assertion='Print tar and curl commands when -v option is passed'
 directory='/tmp/directory-to-tarball.temp'
 command="$PATH0X0 file -v $directory"
@@ -358,7 +345,7 @@ unset command
 unset expected_output_pattern
 unset expected_exit_code
 
-# Test 16
+# Test 15
 assertion='Print curl commands when -v option is passed but should not execute curl commands when -n is passed'
 filename='/tmp/0x0.temp'
 command="$PATH0X0 file -v -n $filename"
@@ -375,7 +362,7 @@ unset command
 unset expected_output_pattern
 unset expected_exit_code
 
-# Test 17
+# Test 16
 assertion='Print tar and curl commands when -v option is passed but should not execute tar or curl commands when -n is passed'
 directory='/tmp/directory-to-tarball.temp'
 command="$PATH0X0 file  -v -n $directory"
@@ -397,7 +384,7 @@ unset command
 unset expected_output_pattern
 unset expected_exit_code
 
-# Test 18
+# Test 17
 assertion="Uploads file with flag-like filename provided it is preceded by --"
 command="$PATH0X0 file -- -a"
 expected_output_pattern='https://0x0.st/*.txt'
@@ -415,7 +402,7 @@ unset command
 unset expected_output_pattern
 unset expected_exit_code
 
-# Test 19
+# Test 18
 assertion="Fails on invalid flags"
 command="$PATH0X0 file -x file-that-im-too-lazy-to-create-it-should-not-matter-for-this-test-anyhow"
 expected_output="$USAGE"

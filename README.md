@@ -1,7 +1,7 @@
 # 0x0
-A portable POSIX shell CLI to the https://0x0.st file sharing and URL shortening service.
+A portable POSIX shell CLI to the https://0x0.st file sharing.
 
-The main documentation is the man page which you can view at [0x0(1)](https://github.com/fossegrim/0x0/raw/master/doc/0x0.1.pdf) or with `man 0x0`.
+The main documentation is the man page which you can view at [0x0(1)](https://github.com/rooyca/0x0/raw/master/doc/0x0.1.pdf) or with `man 0x0`.
 
 ---
 

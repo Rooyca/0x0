@@ -13,7 +13,7 @@
 .\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 .\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 .\"
-.Dd October 15, 2021
+.Dd August 16, 2024
 .Dt 0X0 1
 .Os
 .Sh NAME
@@ -22,14 +22,13 @@
 .Lk https://0x0.st
 .Sh SYNOPSIS
 .Nm 0x0 Cm file Oo Fl nv Oc Ar filename
-.Nm 0x0 Cm shorten Oo Fl nv Oc Ar URL
 .Nm 0x0 Cm url Oo Fl nv Oc Ar URL
 .Sh DESCRIPTION
 The
 .Nm
 utility is an interface to the
 .Lk https://0x0.st
-file hosting and URL shortening service.
+file hosting.
 .Pp
 The command modifiers are as follows.
 .Bl -tag -width Ds
@@ -42,10 +41,6 @@ is a directory, a tarball of the directory is uploaded.
 If
 .Ar filename
 is -, stdin is uploaded.
-.It Cm shorten Ar URL
-Shorten
-.Ar URL ,
-i.e return a short URL that redirects to
 .Ar URL
 when opened.
 Supported protocols are http and https.
@@ -86,7 +81,8 @@ section for a list of known working instances.
 .El
 .Sh INSTANCES
 .Lk https://0x0.st ,
-.Lk https://ttm.sh
+.Lk https://ttm.sh ,
+.Lk https://envs.sh
 .Sh EXIT STATUS
 .Ex -std 0x0
 .Sh EXAMPLES
@@ -112,12 +108,6 @@ $ diff old new | 0x0 file -
 .Lk https://0x0.st/iU8L.txt
 .Ed
 .Pp
-Shorten a URL:
-.Bd -literal -offset indent
-$ 0x0 shorten https://why-openbsd.rocks
-.Lk https://0x0.st/PmsW
-.Ed
-.Pp
 Upload a remote file:
 .Bd -literal -offset indent
 $ 0x0 url http://www.openbsd.org/art/puffy/ppuf800X725.gif
@@ -129,6 +119,8 @@ $ 0x0 url http://www.openbsd.org/art/puffy/ppuf800X725.gif
 .Pp
 .Lk https://0x0.st ,
 .Lk https://ttm.sh ,
-.Lk https://github.com/olavfosse/0x0
+.Lk https://envs.sh ,
+.Lk https://github.com/rooyca/0x0
 .Sh AUTHORS
 .An Olav Fosse Aq Mt post@olavfosse.no
+.An rooyca Aq Mt blog.png8n@slmail.me
