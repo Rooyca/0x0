@@ -34,8 +34,8 @@
 # ---Constants---
 USAGE="$(cat << EOF
 usage:
-	0x0 file [-nv] filename
-	0x0 url [-nv] URL
+	0x0 file [-nve] filename
+	0x0 url [-nve] URL
 EOF
 )"
  
@@ -199,7 +199,7 @@ unset expected_exit_code
 # Test 5
 assertion='File is uploaded from URL'
 command="$PATH0X0 url https://raw.githubusercontent.com/Rooyca/Rooyca/main/README.md"
-expected_output_pattern='https://0x0.st/*.md'
+expected_output_pattern='https://0x0.st/*.txt'
 expected_exit_code=0
 
 test_pattern "$assertion" "$command" "$expected_output_pattern" "$expected_exit_code"
@@ -322,7 +322,7 @@ unset expected_exit_code
 assertion='Print curl commands when -v option is passed'
 filename='/tmp/0x0.temp'
 command="$PATH0X0 file -v $filename"
-expected_output_pattern="curl -Ss -w status_code=%{http_code} https://0x0.st \"-Ffile=@\"$filename\"\"
+expected_output_pattern="curl -Ss -w status_code=%{http_code} https://0x0.st \"-Ffile=@\"$filename\"\" -Fexpires=24
 https://0x0.st/*.temp"
 expected_exit_code=0
 
@@ -343,7 +343,7 @@ assertion='Print tar and curl commands when -v option is passed'
 directory='/tmp/directory-to-tarball.temp'
 command="$PATH0X0 file -v $directory"
 expected_output_pattern="tar cf - \"/tmp/directory-to-tarball.temp\"
-curl -Ss -w status_code=%{http_code} https://0x0.st \"-Ffile=@\"-\"\"
+curl -Ss -w status_code=%{http_code} https://0x0.st \"-Ffile=@\"-\"\" -Fexpires=24
 https://0x0.st/*.tar"
 expected_exit_code=0
 
@@ -365,7 +365,7 @@ unset expected_exit_code
 assertion='Print curl commands when -v option is passed but should not execute curl commands when -n is passed'
 filename='/tmp/0x0.temp'
 command="$PATH0X0 file -v -n $filename"
-expected_output_pattern="curl -Ss -w status_code=%{http_code} https://0x0.st \"-Ffile=@\"$filename\"\""
+expected_output_pattern="curl -Ss -w status_code=%{http_code} https://0x0.st \"-Ffile=@\"$filename\"\" -Fexpires=24"
 expected_exit_code=0
 
 echo "garbage content" >> "$filename"
@@ -383,7 +383,7 @@ assertion='Print tar and curl commands when -v option is passed but should not e
 directory='/tmp/directory-to-tarball.temp'
 command="$PATH0X0 file  -v -n $directory"
 expected_output_pattern="tar cf - \"/tmp/directory-to-tarball.temp\"
-curl -Ss -w status_code=%{http_code} https://0x0.st \"-Ffile=@\"-\"\""
+curl -Ss -w status_code=%{http_code} https://0x0.st \"-Ffile=@\"-\"\" -Fexpires=24"
 expected_exit_code=0
 
 mkdir -p "$directory"

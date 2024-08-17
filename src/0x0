@@ -87,7 +87,7 @@ get_full_status_code() {
 
 form_string() {
 	# Returns properly escaped form string. See curl(1)
-	type="$1" # file/url/shorten
+	type="$1" # file/url
 	file_or_url="$2"
 
 	# shellcheck disable=SC2039
@@ -146,7 +146,7 @@ dispatch_file() {
 		if "$execute"; then
 			# stderr is redirected to /dev/null to prevent the following from being displayed
 			# tar: Removing leading / from absolute path names in the archive
-			tar cf - "$file" 2> /dev/null | request file - "$execute" "$verbose" || exit_with_error 'error: tar archival failed'
+			tar cf - "$file" 2> /dev/null | request file - "$execute" "$verbose" "$expiration" || exit_with_error 'error: tar archival failed'
 		else
 			# NB: This branch is not redundant.
 			# it is required because although we will not execute the command, we may still print it in case $verbose is true
