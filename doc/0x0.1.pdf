@@ -90,12 +90,12 @@ ET
 BT
 /F1 11 Tf
 118.437 641.432 Td
-([-nv]) Tj
+([-nve]) Tj
 ET
 /F2 11 Tf
 BT
 /F2 11 Tf
-143.792 641.432 Td
+148.676 641.432 Td
 (filename) Tj
 ET
 /F1 11 Tf
@@ -112,12 +112,12 @@ ET
 BT
 /F1 11 Tf
 117.832 626.043 Td
-([-nv]) Tj
+([-nve]) Tj
 ET
 /F2 11 Tf
 BT
 /F2 11 Tf
-143.187 626.043 Td
+148.071 626.043 Td
 (URL) Tj
 ET
 /F1 11 Tf
@@ -359,53 +359,6 @@ BT
 /F0 11 Tf
 224.466 487.542 Td
 (uploaded.) Tj
-ET
-/F2 11 Tf
-BT
-/F2 11 Tf
-273.042 487.542 Td
-(URL) Tj
-ET
-/F0 11 Tf
-BT
-/F0 11 Tf
-296.571 487.542 Td
-(when) Tj
-ET
-BT
-/F0 11 Tf
-323.147 487.542 Td
-(opened.) Tj
-ET
-BT
-/F0 11 Tf
-363.165 487.542 Td
-(Supported) Tj
-ET
-BT
-/F0 11 Tf
-411.136 487.542 Td
-(protocols) Tj
-ET
-BT
-/F0 11 Tf
-454.828 487.542 Td
-(are) Tj
-ET
-BT
-/F0 11 Tf
-471.009 487.542 Td
-(http) Tj
-ET
-BT
-/F0 11 Tf
-490.875 487.542 Td
-(and) Tj
-ET
-BT
-/F0 11 Tf
-509.509 487.542 Td
-(https.) Tj
 ET
 /F1 11 Tf
 BT
@@ -656,308 +609,378 @@ ET
 /F1 11 Tf
 BT
 /F1 11 Tf
-68.024 318.263 Td
+81.774 318.263 Td
+(-e) Tj
+ET
+/F0 11 Tf
+BT
+/F0 11 Tf
+120.274 318.263 Td
+(Set) Tj
+ET
+BT
+/F0 11 Tf
+137.082 318.263 Td
+(the) Tj
+ET
+BT
+/F0 11 Tf
+153.274 318.263 Td
+(expiration) Tj
+ET
+BT
+/F0 11 Tf
+200.629 318.263 Td
+(time.) Tj
+ET
+BT
+/F0 11 Tf
+228.437 318.263 Td
+(Default) Tj
+ET
+BT
+/F0 11 Tf
+264.176 318.263 Td
+(value) Tj
+ET
+BT
+/F0 11 Tf
+290.752 318.263 Td
+(is) Tj
+ET
+BT
+/F0 11 Tf
+300.839 318.263 Td
+(24) Tj
+ET
+BT
+/F0 11 Tf
+314.589 318.263 Td
+(hours.) Tj
+ET
+BT
+/F0 11 Tf
+347.281 318.263 Td
+(Accepts) Tj
+ET
+BT
+/F0 11 Tf
+385.462 318.263 Td
+(either) Tj
+ET
+BT
+/F0 11 Tf
+413.259 318.263 Td
+(a) Tj
+ET
+BT
+/F0 11 Tf
+420.893 318.263 Td
+(duration) Tj
+ET
+BT
+/F0 11 Tf
+460.306 318.263 Td
+(in) Tj
+ET
+BT
+/F0 11 Tf
+471.614 318.263 Td
+(hours) Tj
+ET
+BT
+/F0 11 Tf
+498.806 318.263 Td
+(or) Tj
+ET
+BT
+/F0 11 Tf
+510.719 318.263 Td
+(an) Tj
+ET
+BT
+/F0 11 Tf
+120.274 302.874 Td
+(epoch) Tj
+ET
+BT
+/F0 11 Tf
+149.292 302.874 Td
+(time.) Tj
+ET
+/F1 11 Tf
+BT
+/F1 11 Tf
+68.024 272.096 Td
 (ENVIRONMENT) Tj
 ET
 /F0 11 Tf
 BT
 /F0 11 Tf
-81.774 302.874 Td
+81.774 256.707 Td
 (NULLPOINTERINSTANCE) Tj
 ET
 BT
 /F0 11 Tf
-217.426 302.874 Td
+217.426 256.707 Td
 (Any) Tj
 ET
 BT
 /F0 11 Tf
-239.118 302.874 Td
+239.118 256.707 Td
 (non-empty) Tj
 ET
 BT
 /F0 11 Tf
-289.531 302.874 Td
+289.531 256.707 Td
 (value) Tj
 ET
 BT
 /F0 11 Tf
-316.107 302.874 Td
+316.107 256.707 Td
 (of) Tj
 ET
 BT
 /F0 11 Tf
-328.020 302.874 Td
+328.020 256.707 Td
 (the) Tj
 ET
 BT
 /F0 11 Tf
-344.212 302.874 Td
+344.212 256.707 Td
 (environment) Tj
 ET
 BT
 /F0 11 Tf
-402.567 302.874 Td
+402.567 256.707 Td
 (variable) Tj
 ET
 BT
 /F0 11 Tf
-217.426 287.485 Td
+217.426 241.318 Td
 (NULLPOINTERINSTANCE) Tj
 ET
 BT
 /F0 11 Tf
-350.328 287.485 Td
+350.328 241.318 Td
 (is) Tj
 ET
 BT
 /F0 11 Tf
-360.415 287.485 Td
+360.415 241.318 Td
 (used) Tj
 ET
 BT
 /F0 11 Tf
-383.328 287.485 Td
+383.328 241.318 Td
 (instead) Tj
 ET
 BT
 /F0 11 Tf
-417.241 287.485 Td
+417.241 241.318 Td
 (of) Tj
 ET
 BT
 /F0 11 Tf
-429.154 287.485 Td
+429.154 241.318 Td
 (the) Tj
 ET
 BT
 /F0 11 Tf
-445.346 287.485 Td
+445.346 241.318 Td
 (standard) Tj
 ET
 BT
 /F0 11 Tf
-485.364 287.485 Td
+485.364 241.318 Td
 (0x0) Tj
 ET
 BT
 /F0 11 Tf
-504.614 287.485 Td
+504.614 241.318 Td
 (instance) Tj
 ET
 /F1 11 Tf
 BT
 /F1 11 Tf
-217.426 272.096 Td
+217.426 225.929 Td
 (https://0x0.st) Tj
 ET
 /F0 11 Tf
 BT
 /F0 11 Tf
-278.234 272.096 Td
+278.234 225.929 Td
 (.) Tj
 ET
 BT
 /F0 11 Tf
-283.734 272.096 Td
+283.734 225.929 Td
 (See) Tj
 ET
 BT
 /F0 11 Tf
-302.368 272.096 Td
+302.368 225.929 Td
 (the) Tj
 ET
 /F2 11 Tf
 BT
 /F2 11 Tf
-318.560 272.096 Td
+318.560 225.929 Td
 (INSTANCES) Tj
 ET
 /F0 11 Tf
 BT
 /F0 11 Tf
-377.542 272.096 Td
+377.542 225.929 Td
 (section) Tj
 ET
 BT
 /F0 11 Tf
-411.455 272.096 Td
+411.455 225.929 Td
 (for) Tj
 ET
 BT
 /F0 11 Tf
-427.031 272.096 Td
+427.031 225.929 Td
 (a) Tj
 ET
 BT
 /F0 11 Tf
-434.665 272.096 Td
+434.665 225.929 Td
 (list) Tj
 ET
 BT
 /F0 11 Tf
-450.868 272.096 Td
+450.868 225.929 Td
 (of) Tj
 ET
 BT
 /F0 11 Tf
-462.781 272.096 Td
+462.781 225.929 Td
 (known) Tj
 ET
 BT
 /F0 11 Tf
-495.473 272.096 Td
+495.473 225.929 Td
 (working) Tj
 ET
 BT
 /F0 11 Tf
-217.426 256.707 Td
+217.426 210.540 Td
 (instances.) Tj
 ET
 /F1 11 Tf
 BT
 /F1 11 Tf
-68.024 225.929 Td
+68.024 179.762 Td
 (INSTANCES) Tj
 ET
 BT
 /F1 11 Tf
-81.774 210.540 Td
+81.774 164.373 Td
 (https://0x0.st) Tj
 ET
 /F0 11 Tf
 BT
 /F0 11 Tf
-142.582 210.540 Td
+142.582 164.373 Td
 (,) Tj
 ET
 /F1 11 Tf
 BT
 /F1 11 Tf
-148.082 210.540 Td
+148.082 164.373 Td
 (https://ttm.sh) Tj
 ET
 /F0 11 Tf
 BT
 /F0 11 Tf
-211.332 210.540 Td
+211.332 164.373 Td
 (,) Tj
 ET
 /F1 11 Tf
 BT
 /F1 11 Tf
-216.832 210.540 Td
+216.832 164.373 Td
 (https://envs.sh) Tj
 ET
 BT
 /F1 11 Tf
-68.024 179.762 Td
+68.024 133.595 Td
 (EXIT) Tj
 ET
 BT
 /F1 11 Tf
-97.669 179.762 Td
+97.669 133.595 Td
 (STATUS) Tj
 ET
 /F0 11 Tf
 BT
 /F0 11 Tf
-81.774 164.373 Td
+81.774 118.206 Td
 (The) Tj
 ET
 /F1 11 Tf
 BT
 /F1 11 Tf
-101.629 164.373 Td
+101.629 118.206 Td
 (0x0) Tj
 ET
 /F0 11 Tf
 BT
 /F0 11 Tf
-120.879 164.373 Td
+120.879 118.206 Td
 (utility) Tj
 ET
 BT
 /F0 11 Tf
-149.919 164.373 Td
+149.919 118.206 Td
 (exits) Tj
 ET
 BT
 /F0 11 Tf
-173.448 164.373 Td
+173.448 118.206 Td
 (0) Tj
 ET
 BT
 /F0 11 Tf
-181.698 164.373 Td
+181.698 118.206 Td
 (on) Tj
 ET
 BT
 /F0 11 Tf
-195.448 164.373 Td
+195.448 118.206 Td
 (success,) Tj
 ET
 BT
 /F0 11 Tf
-233.937 164.373 Td
+233.937 118.206 Td
 (and) Tj
 ET
 BT
 /F0 11 Tf
-252.571 164.373 Td
+252.571 118.206 Td
 (>0) Tj
 ET
 BT
 /F0 11 Tf
-267.025 164.373 Td
+267.025 118.206 Td
 (if) Tj
 ET
 BT
 /F0 11 Tf
-276.496 164.373 Td
+276.496 118.206 Td
 (an) Tj
 ET
 BT
 /F0 11 Tf
-289.630 164.373 Td
+289.630 118.206 Td
 (error) Tj
 ET
 BT
 /F0 11 Tf
-313.753 164.373 Td
+313.753 118.206 Td
 (occurs.) Tj
-ET
-/F1 11 Tf
-BT
-/F1 11 Tf
-68.024 133.595 Td
-(EXAMPLES) Tj
-ET
-/F0 11 Tf
-BT
-/F0 11 Tf
-81.774 118.206 Td
-(Upload) Tj
-ET
-BT
-/F0 11 Tf
-116.908 118.206 Td
-(the) Tj
-ET
-BT
-/F0 11 Tf
-133.100 118.206 Td
-(source) Tj
-ET
-BT
-/F0 11 Tf
-164.560 118.206 Td
-(code) Tj
-ET
-BT
-/F0 11 Tf
-188.078 118.206 Td
-(of) Tj
 ET
 /F0 11 Tf
 BT
@@ -1023,7 +1046,7 @@ ET
 endstream
 endobj
 8 0 obj
-9063
+9262
 endobj
 9 0 obj
 <<
@@ -1050,388 +1073,429 @@ endobj
 >>
 stream
 BT
+/F1 11 Tf
+68.024 702.988 Td
+(EXAMPLES) Tj
+ET
 /F0 11 Tf
-98.274 702.988 Td
+BT
+/F0 11 Tf
+81.774 687.599 Td
+(Upload) Tj
+ET
+BT
+/F0 11 Tf
+116.908 687.599 Td
+(the) Tj
+ET
+BT
+/F0 11 Tf
+133.100 687.599 Td
+(source) Tj
+ET
+BT
+/F0 11 Tf
+164.560 687.599 Td
+(code) Tj
+ET
+BT
+/F0 11 Tf
+188.078 687.599 Td
+(of) Tj
+ET
+BT
+/F0 11 Tf
+98.274 656.821 Td
 ($) Tj
 ET
 BT
 /F0 11 Tf
-106.524 702.988 Td
+106.524 656.821 Td
 (0x0) Tj
 ET
 BT
 /F0 11 Tf
-125.774 702.988 Td
+125.774 656.821 Td
 (file) Tj
 ET
 BT
 /F0 11 Tf
-143.187 702.988 Td
+143.187 656.821 Td
 ("$\(which) Tj
 ET
 BT
 /F0 11 Tf
-186.472 702.988 Td
+186.472 656.821 Td
 (0x0\)") Tj
 ET
 /F1 11 Tf
 BT
 /F1 11 Tf
-98.274 687.599 Td
+98.274 641.432 Td
 (https://0x0.st/iU8B.bin) Tj
 ET
 /F0 11 Tf
 BT
 /F0 11 Tf
-81.774 656.821 Td
+81.774 610.654 Td
 (Output) Tj
 ET
 BT
 /F0 11 Tf
-115.082 656.821 Td
+115.082 610.654 Td
 (the) Tj
 ET
 BT
 /F0 11 Tf
-131.274 656.821 Td
+131.274 610.654 Td
 (curl\(1\)) Tj
 ET
 BT
 /F0 11 Tf
-163.955 656.821 Td
+163.955 610.654 Td
 (command) Tj
 ET
 /F1 11 Tf
 BT
 /F1 11 Tf
-210.089 656.821 Td
+210.089 610.654 Td
 (0x0) Tj
 ET
 /F0 11 Tf
 BT
 /F0 11 Tf
-229.339 656.821 Td
+229.339 610.654 Td
 (uses) Tj
 ET
 BT
 /F0 11 Tf
-251.031 656.821 Td
+251.031 610.654 Td
 (in) Tj
 ET
 BT
 /F0 11 Tf
-262.339 656.821 Td
+262.339 610.654 Td
 (the) Tj
 ET
 BT
 /F0 11 Tf
-278.531 656.821 Td
+278.531 610.654 Td
 (previous) Tj
 ET
 BT
 /F0 11 Tf
-319.165 656.821 Td
+319.165 610.654 Td
 (example) Tj
 ET
 BT
 /F0 11 Tf
-359.183 656.821 Td
+359.183 610.654 Td
 (without) Tj
 ET
 BT
 /F0 11 Tf
-395.549 656.821 Td
+395.549 610.654 Td
 (executing) Tj
 ET
 BT
 /F0 11 Tf
-441.067 656.821 Td
+441.067 610.654 Td
 (it:) Tj
 ET
 BT
 /F0 11 Tf
-98.274 626.043 Td
+98.274 579.876 Td
 ($) Tj
 ET
 BT
 /F0 11 Tf
-106.524 626.043 Td
+106.524 579.876 Td
 (0x0) Tj
 ET
 BT
 /F0 11 Tf
-125.774 626.043 Td
+125.774 579.876 Td
 (file) Tj
 ET
 BT
 /F0 11 Tf
-143.187 626.043 Td
+143.187 579.876 Td
 (-nv) Tj
 ET
 BT
 /F0 11 Tf
-160.600 626.043 Td
+160.600 579.876 Td
 ("$\(which) Tj
 ET
 BT
 /F0 11 Tf
-203.885 626.043 Td
+203.885 579.876 Td
 (0x0\)") Tj
 ET
 BT
 /F0 11 Tf
-98.274 610.654 Td
+98.274 564.487 Td
 (curl) Tj
 ET
 BT
 /F0 11 Tf
-118.129 610.654 Td
+118.129 564.487 Td
 (-Ss) Tj
 ET
 BT
 /F0 11 Tf
-134.937 610.654 Td
+134.937 564.487 Td
 (-w) Tj
 ET
 BT
 /F0 11 Tf
-149.292 610.654 Td
+149.292 564.487 Td
 (status_code=%{http_code}) Tj
 ET
 BT
 /F0 11 Tf
-272.679 610.654 Td
+272.679 564.487 Td
 (https://0x0.st) Tj
 ET
 BT
 /F0 11 Tf
-332.585 610.654 Td
-("-Ffile=@"/usr/local/bin/0x0"") Tj
+332.585 564.487 Td
+("-Ffile=@"/usr/local/bin/0x0") Tj
 ET
 BT
 /F0 11 Tf
-81.774 579.876 Td
+467.192 564.487 Td
+(-Fexpires="24"") Tj
+ET
+BT
+/F0 11 Tf
+81.774 533.709 Td
 (Upload) Tj
 ET
 BT
 /F0 11 Tf
-116.908 579.876 Td
+116.908 533.709 Td
 (a) Tj
 ET
 BT
 /F0 11 Tf
-124.542 579.876 Td
+124.542 533.709 Td
 (diff:) Tj
 ET
 BT
 /F0 11 Tf
-98.274 549.098 Td
+98.274 502.931 Td
 ($) Tj
 ET
 BT
 /F0 11 Tf
-106.524 549.098 Td
+106.524 502.931 Td
 (diff) Tj
 ET
 BT
 /F0 11 Tf
-125.158 549.098 Td
+125.158 502.931 Td
 (old) Tj
 ET
 BT
 /F0 11 Tf
-141.966 549.098 Td
+141.966 502.931 Td
 (new) Tj
 ET
 BT
 /F0 11 Tf
-163.042 549.098 Td
+163.042 502.931 Td
 (|) Tj
 ET
 BT
 /F0 11 Tf
-167.992 549.098 Td
+167.992 502.931 Td
 (0x0) Tj
 ET
 BT
 /F0 11 Tf
-187.242 549.098 Td
+187.242 502.931 Td
 (file) Tj
 ET
 BT
 /F0 11 Tf
-204.655 549.098 Td
+204.655 502.931 Td
 (-) Tj
 ET
 /F1 11 Tf
 BT
 /F1 11 Tf
-98.274 533.709 Td
+98.274 487.542 Td
 (https://0x0.st/iU8L.txt) Tj
 ET
 /F0 11 Tf
 BT
 /F0 11 Tf
-81.774 502.931 Td
+81.774 456.764 Td
 (Upload) Tj
 ET
 BT
 /F0 11 Tf
-116.908 502.931 Td
+116.908 456.764 Td
 (a) Tj
 ET
 BT
 /F0 11 Tf
-124.542 502.931 Td
+124.542 456.764 Td
 (remote) Tj
 ET
 BT
 /F0 11 Tf
-157.839 502.931 Td
+157.839 456.764 Td
 (file:) Tj
 ET
 BT
 /F0 11 Tf
-98.274 472.153 Td
+98.274 425.986 Td
 ($) Tj
 ET
 BT
 /F0 11 Tf
-106.524 472.153 Td
+106.524 425.986 Td
 (0x0) Tj
 ET
 BT
 /F0 11 Tf
-125.774 472.153 Td
+125.774 425.986 Td
 (url) Tj
 ET
 BT
 /F0 11 Tf
-140.745 472.153 Td
+140.745 425.986 Td
 (http://www.openbsd.org/art/puffy/ppuf800X725.gif) Tj
 ET
 /F1 11 Tf
 BT
 /F1 11 Tf
-98.274 456.764 Td
+98.274 410.597 Td
 (https://0x0.st/iU8n.gif) Tj
 ET
 BT
 /F1 11 Tf
-68.024 425.986 Td
+68.024 379.819 Td
 (SEE) Tj
 ET
 BT
 /F1 11 Tf
-91.564 425.986 Td
+91.564 379.819 Td
 (ALSO) Tj
 ET
 /F0 11 Tf
 BT
 /F0 11 Tf
-81.774 410.597 Td
+81.774 364.430 Td
 (curl\(1\),) Tj
 ET
 BT
 /F0 11 Tf
-117.205 410.597 Td
+117.205 364.430 Td
 (tar\(1\)) Tj
 ET
 /F1 11 Tf
 BT
 /F1 11 Tf
-81.774 379.819 Td
+81.774 333.652 Td
 (https://0x0.st) Tj
 ET
 /F0 11 Tf
 BT
 /F0 11 Tf
-142.582 379.819 Td
+142.582 333.652 Td
 (,) Tj
 ET
 /F1 11 Tf
 BT
 /F1 11 Tf
-148.082 379.819 Td
+148.082 333.652 Td
 (https://ttm.sh) Tj
 ET
 /F0 11 Tf
 BT
 /F0 11 Tf
-211.332 379.819 Td
+211.332 333.652 Td
 (,) Tj
 ET
 /F1 11 Tf
 BT
 /F1 11 Tf
-216.832 379.819 Td
+216.832 333.652 Td
 (https://envs.sh) Tj
 ET
 /F0 11 Tf
 BT
 /F0 11 Tf
-284.372 379.819 Td
+284.372 333.652 Td
 (,) Tj
 ET
 /F1 11 Tf
 BT
 /F1 11 Tf
-289.872 379.819 Td
+289.872 333.652 Td
 (https://github.com/rooyca/0x0) Tj
 ET
 BT
 /F1 11 Tf
-68.024 349.041 Td
+68.024 302.874 Td
 (AUTHORS) Tj
 ET
 /F0 11 Tf
 BT
 /F0 11 Tf
-81.774 333.652 Td
+81.774 287.485 Td
 (Olav) Tj
 ET
 BT
 /F0 11 Tf
-105.908 333.652 Td
+105.908 287.485 Td
 (Fosse) Tj
 ET
 BT
 /F0 11 Tf
-133.716 333.652 Td
+133.716 287.485 Td
 (<) Tj
 ET
 /F2 11 Tf
 BT
 /F2 11 Tf
-139.920 333.652 Td
+139.920 287.485 Td
 (post@olavfosse.no) Tj
 ET
 /F0 11 Tf
 BT
 /F0 11 Tf
-223.069 333.652 Td
+223.069 287.485 Td
 (>) Tj
 ET
 BT
 /F0 11 Tf
-81.774 318.263 Td
-(rooyca) Tj
+81.774 272.096 Td
+(Ronald) Tj
 ET
 BT
 /F0 11 Tf
-114.455 318.263 Td
+116.303 272.096 Td
+(Cantillo) Tj
+ET
+BT
+/F0 11 Tf
+154.506 272.096 Td
 (<) Tj
 ET
 /F2 11 Tf
 BT
 /F2 11 Tf
-120.659 318.263 Td
+160.710 272.096 Td
 (blog.png8n@slmail.me) Tj
 ET
 /F0 11 Tf
 BT
 /F0 11 Tf
-223.058 318.263 Td
+263.109 272.096 Td
 (>) Tj
 ET
 /F0 11 Tf
@@ -1498,7 +1562,7 @@ ET
 endstream
 endobj
 12 0 obj
-4269
+4656
 endobj
 13 0 obj
 <<
@@ -1537,20 +1601,20 @@ xref
 0 16
 0000000000 65535 f 
 0000000009 00000 n 
-0000014197 00000 n 
+0000014783 00000 n 
 0000000030 00000 n 
 0000000112 00000 n 
 0000000193 00000 n 
 0000000276 00000 n 
 0000000363 00000 n 
-0000009478 00000 n 
-0000009498 00000 n 
-0000009593 00000 n 
-0000009674 00000 n 
-0000013997 00000 n 
-0000014018 00000 n 
-0000014114 00000 n 
-0000014287 00000 n 
+0000009677 00000 n 
+0000009697 00000 n 
+0000009792 00000 n 
+0000009873 00000 n 
+0000014583 00000 n 
+0000014604 00000 n 
+0000014700 00000 n 
+0000014873 00000 n 
 trailer
 <<
 /Size 16
@@ -1558,5 +1622,5 @@ trailer
 /Info 1 0 R
 >>
 startxref
-14337
+14923
 %%EOF

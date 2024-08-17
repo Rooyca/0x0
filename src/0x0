@@ -34,8 +34,8 @@
 # ---Constants---
 USAGE="$(cat << EOF
 usage:
-	0x0 file [-nv] filename
-	0x0 url [-nv] URL
+	0x0 file [-nve] filename
+	0x0 url [-nve] URL
 EOF
 )"
 
@@ -103,16 +103,18 @@ request() {
 	file_or_url="$2"
 	execute="$3"
 	verbose="$4"
+	expiration="$5"
+
 
 	form_string="$(form_string "$type" "$file_or_url")"
 
 	# NB: The command is repeated two places.
 	# This is bad, but I couldn't get it to print and run correctly at the same time when putting it in a variable.
 	if "$verbose"; then
-		echo curl -Ss -w status_code=%\{http_code\} \""$(instance)"\" \""$form_string"\"
+		echo curl -Ss -w status_code=%\{http_code\} \""$(instance)"\" \""$form_string"\" -Fexpires="$expiration"
 	fi
 	if "$execute"; then
-		output="$(curl -Ss -w status_code=%\{http_code\} "$(instance)" "$form_string")" || exit 1
+		output="$(curl -Ss -w status_code=%\{http_code\} "$(instance)" "$form_string" -Fexpires="$expiration")" || exit 1
 		code="$(echo "$output" | tail -n 1 |  sed s/status_code=//g)"
 		response="$(echo "$output" | grep -vE 'status_code=.*')" # Remove status_code line
 
@@ -131,9 +133,10 @@ dispatch_file() {
 	file="$1"
 	execute="$2"
 	verbose="$3"
+	expiration="$4"
 
 	if [ "$file" = - ]; then
-		request file - "$execute" "$verbose"
+		request file - "$execute" "$verbose" "$expiration"
 	elif [ -d "$file" ]; then
 		# NB: The command is repeated two places.
 		# This is bad, but I couldn't get it to print and run correctly at the same time when putting it in a variable.
@@ -147,10 +150,10 @@ dispatch_file() {
 		else
 			# NB: This branch is not redundant.
 			# it is required because although we will not execute the command, we may still print it in case $verbose is true
-			request file - "$execute" "$verbose"
+			request file - "$execute" "$verbose" "$expiration"
 		fi
 	elif [ -e "$file" ]; then
-		request file "$file" "$execute" "$verbose"
+		request file "$file" "$execute" "$verbose" "$expiration"
 	else
 		exit_with_error "error: $file does not exist"
 	fi
@@ -160,47 +163,50 @@ dispatch_url() {
 	url="$1"
 	execute="$2"
 	verbose="$3"
+	expiration="$5"
 
 	is_valid_url "$url" || exit_with_error 'error: invalid url'
 
-	request url "$url" "$execute" "$verbose"
+	request url "$url" "$execute" "$verbose" "$expiration"
 }
 
 # ---Dispatcher---
 dispatch() {
-	command_modifier="$1"
+    command_modifier="$1"
 
-	# shift fails if there are no arguments to shift.
-	[ "$#" = 0 ] && exit_with_error "$USAGE"
-	shift
+    # shift fails if there are no arguments to shift.
+    [ "$#" = 0 ] && exit_with_error "$USAGE"
+    shift
 
-	execute=true
-	verbose=false
-	while getopts ":nv" flag; do
-		case "$flag" in
-			n) execute=false;;
-			v) verbose=true;;
-			?) exit_with_error "$USAGE"
-		esac
-	done
+    execute=true
+    verbose=false
+    expiration=24  # Default expiration time
+    while getopts ":nve:" flag; do
+        case "$flag" in
+            n) execute=false;;
+            v) verbose=true;;
+            e) expiration="$OPTARG";;  # Set expiration time
+            ?) exit_with_error "$USAGE"
+        esac
+    done
 
-	# Shift away the processed options
-	shift $((OPTIND-1))
+    # Shift away the processed options
+    shift $((OPTIND-1))
 
-	# Only continue if exactly one file or url is passed
-	[ "$#" -eq 1 ] || exit_with_error "$USAGE"
-	file_or_url="$1"
+    # Only continue if exactly one file or url is passed
+    [ "$#" -eq 1 ] || exit_with_error "$USAGE"
+    file_or_url="$1"
 
-	case "$command_modifier" in
-		file)
-			dispatch_file "$file_or_url" "$execute" "$verbose"
-			;;
-		url)
-			dispatch_url "$file_or_url" "$execute" "$verbose"
-			;;
-		*)
-			exit_with_error "$USAGE"
-	esac
+    case "$command_modifier" in
+        file)
+            dispatch_file "$file_or_url" "$execute" "$verbose" "$expiration"
+            ;;
+        url)
+            dispatch_url "$file_or_url" "$execute" "$verbose" "$expiration"
+            ;;
+        *)
+            exit_with_error "$USAGE"
+    esac
 }
 
 # ---Entry point---

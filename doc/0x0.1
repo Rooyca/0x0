@@ -36,8 +36,8 @@
 .Nd interface with
 .Lk https://0x0.st
 .Sh SYNOPSIS
-.Nm 0x0 Cm file Oo Fl nv Oc Ar filename
-.Nm 0x0 Cm url Oo Fl nv Oc Ar URL
+.Nm 0x0 Cm file Oo Fl nve Oc Ar filename
+.Nm 0x0 Cm url Oo Fl nve Oc Ar URL
 .Sh DESCRIPTION
 The
 .Nm
@@ -56,9 +56,6 @@ is a directory, a tarball of the directory is uploaded.
 If
 .Ar filename
 is -, stdin is uploaded.
-.Ar URL
-when opened.
-Supported protocols are http and https.
 .It Cm url Ar URL
 Upload the remote file at
 .Ar URL .
@@ -81,6 +78,10 @@ and
 commands that are executed, or would be if
 .Fl n
 was not passed.
+.It Fl e
+Set the expiration time.
+Default value is 24 hours.
+Accepts either a duration in hours or an epoch time.
 .El
 .Sh ENVIRONMENT
 .\" The reason we do not call the variable 0X0INSTANCE is that it is illegal to use 0 in a variable
@@ -114,7 +115,7 @@ command
 uses in the previous example without executing it:
 .Bd -literal -offset indent
 $ 0x0 file -nv "$(which 0x0)"
-curl -Ss -w status_code=%{http_code} https://0x0.st "-Ffile=@"/usr/local/bin/0x0""
+curl -Ss -w status_code=%{http_code} https://0x0.st "-Ffile=@"/usr/local/bin/0x0" -Fexpires="24""
 .Ed
 .Pp
 Upload a diff:
