@@ -15,6 +15,22 @@
 # PERFORMANCE OF THIS SOFTWARE.
 #
 
+# Additional modifications made in 2024 by Ronald Cantillo
+# Copyright (c) 2024 Ronald Cantillo
+#
+# Permission to use, copy, modify, and distribute these modifications for any purpose
+# with or without fee is hereby granted, provided that the above copyright
+# notice, this permission notice, and the following disclaimer appear in all copies.
+#
+# THESE MODIFICATIONS ARE PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+# REGARD TO THESE MODIFICATIONS INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+# AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+# INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+# LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+# OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+# PERFORMANCE OF THESE MODIFICATIONS.
+#
+
 # ---Constants---
 USAGE="$(cat << EOF
 usage:
